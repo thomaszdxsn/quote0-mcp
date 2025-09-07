@@ -11,6 +11,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const API_KEY = process.env.QUOTE0_API_KEY;
+const API_URL = process.env.QUOTE0_API_URL || 'https://dot.mindreset.tech/api/open/text';
+
 if (!API_KEY) {
   console.error('Error: QUOTE0_API_KEY environment variable is required');
   console.error('Please set QUOTE0_API_KEY in your .env file or environment variables');
@@ -90,7 +92,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const args = SendTextSchema.parse(request.params.arguments);
 
     try {
-      const response = await fetch('https://dot.mindreset.tech/api/open/text', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${API_KEY}`,
@@ -173,6 +175,7 @@ async function main() {
   await server.connect(transport);
   console.error('Quote0 MCP server running on stdio');
   console.error('API Key configured:', API_KEY!.substring(0, 8) + '...');
+  console.error('API URL:', API_URL);
 }
 
 main().catch((error) => {

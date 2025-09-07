@@ -17,13 +17,14 @@ Send text content to Quote0 devices with support for:
 pnpm install
 ```
 
-2. Configure your API key:
+2. Configure your environment:
 ```bash
 # Copy the example environment file
 cp .env.example .env
 
-# Edit .env and add your Quote0 API key
+# Edit .env and add your configuration
 QUOTE0_API_KEY=your_actual_api_key_here
+QUOTE0_API_URL=https://dot.mindreset.tech/api/open/text  # Optional, uses default if not set
 ```
 
 3. Build the project:
