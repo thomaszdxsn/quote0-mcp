@@ -1,0 +1,28 @@
+# Source files
+src/
+*.ts
+
+# Config files
+tsconfig.json
+.env
+.env.example
+.gitignore
+
+# Development files
+node_modules/
+pnpm-lock.yaml
+*.log
+.DS_Store
+
+# Documentation
+CLAUDE.md
+
+# IDE
+.vscode/
+.idea/
+
+# Test files
+*.test.ts
+*.spec.ts
+__tests__/
+coverage/

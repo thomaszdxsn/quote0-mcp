@@ -1,20 +1,45 @@
 {
   "name": "quote0-mcp",
   "version": "1.0.0",
-  "description": "MCP server built with TypeScript",
+  "description": "Model Context Protocol server for Quote0 smart display devices",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "quote0-mcp": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm run build && npm publish",
+    "release:patch": "npm version patch && pnpm run release",
+    "release:minor": "npm version minor && pnpm run release",
+    "release:major": "npm version major && pnpm run release"
   },
   "keywords": [
     "mcp",
-    "modelcontextprotocol"
+    "modelcontextprotocol",
+    "quote0",
+    "e-ink",
+    "smart-display",
+    "iot"
   ],
-  "author": "",
+  "author": "thomaszdxsn",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomaszdxsn/quote0-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thomaszdxsn/quote0-mcp/issues"
+  },
+  "homepage": "https://github.com/thomaszdxsn/quote0-mcp#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.17.5",
